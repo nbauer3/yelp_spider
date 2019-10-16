@@ -5,7 +5,7 @@ import scrapy
 class PostsSpider(scrapy.Spider):
     name = 'posts'
     allowed_domains = ['www.yelp.com/biz/herndon-centennial-golf-course-herndon']
-    start_urls = ['http://www.yelp.com/biz/herndon-centennial-golf-course-herndon/']
+    start_urls = ['http://www.yelp.com/biz/herndon-centennial-golf-course-herndon']
 
     def parse(self, response):
 
@@ -14,8 +14,8 @@ class PostsSpider(scrapy.Spider):
     	# first original scrape
     	#self.scrape(response)
 
-    	url = response.xpath('//*[@id="super-container"]/div/div/div[1]/div[3]/div[2]/div[3]/div/div/div[2]/div/div[3]/a/@href').extract_first()
-    	yield scrapy.Request(url=url, callback=self.parse)
+    	#url = response.xpath('//*[@id="super-container"]/div/div/div[1]/div[3]/div[2]/div[3]/div/div/div[2]/div/div[3]/a/@href').extract_first()
+    	#yield scrapy.Request(url=url, callback=self.parse)
     	self.scrape(response)
 
     def scrape(self, response):
